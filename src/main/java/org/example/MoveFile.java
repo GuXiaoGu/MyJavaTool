@@ -16,7 +16,7 @@ import java.util.List;
  *
  * 移动文件到新的文件夹
  */
-public class Main {
+public class MoveFile {
 
     static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     static SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM");
@@ -26,11 +26,12 @@ public class Main {
         // 文件夹路径
         String sourceFolderPath = "F:\\2022-7-22存放所有未分类";
         // 目标文件夹路径
-        String targetFolderPath = "F:\\完完整整分类好的\\04-照片日期分类";
+        String targetFolderPath = "F:\\完完整整分类好的\\3-个人笔记\\04-照片日期分类";
 
         // 指定的文件类型
-        // String[] fileType = {".docx", ".pdf", ".txt",".doc",".exceL"};
-        String[] fileType = {".jpg", ".mp4", ".png" ,".jpeg",".JPG",".NEF",".bmp"};
+        // String[] fileType = {".docx", ".pdf", ".txt",".doc",".xlsx"};
+        String[] fileType = {".gif",".MOV",".AAE"};
+        // String[] fileType = {".jpg", ".mp4", ".png" ,".jpeg",".JPG",".NEF",".bmp",".gif",".MP4",".mpg",".MOV",".AAE",".avi"};
 
 
         File folder = new File(sourceFolderPath);
