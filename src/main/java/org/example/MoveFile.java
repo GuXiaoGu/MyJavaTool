@@ -14,7 +14,8 @@ import java.util.List;
  * @Description: org.example
  * @version: 1.0
  *
- * 移动文件到新的文件夹
+ * 移动文件到新的文件夹，并且以年月命名
+ * 自己主要是用来分类图片
  */
 public class MoveFile {
 
@@ -24,14 +25,14 @@ public class MoveFile {
         System.out.println("Hello world!");
 
         // 文件夹路径
-        String sourceFolderPath = "F:\\2022-7-22存放所有未分类";
+        String sourceFolderPath = "F:\\完完整整分类好的\\04-照片日期分类\\0000";
         // 目标文件夹路径
-        String targetFolderPath = "F:\\完完整整分类好的\\3-个人笔记\\04-照片日期分类";
+        String targetFolderPath = "F:\\完完整整分类好的\\04-照片日期分类";
 
         // 指定的文件类型
         // String[] fileType = {".docx", ".pdf", ".txt",".doc",".xlsx"};
-        String[] fileType = {".gif",".MOV",".AAE"};
-        // String[] fileType = {".jpg", ".mp4", ".png" ,".jpeg",".JPG",".NEF",".bmp",".gif",".MP4",".mpg",".MOV",".AAE",".avi"};
+        // String[] fileType = {".mp3"};
+        String[] fileType = {".jpg", ".mp4", ".png" ,".jpeg",".JPG",".NEF",".bmp",".gif",".MP4",".mpg",".MOV",".AAE",".avi",".TS",".PNG","mp3"};
 
 
         File folder = new File(sourceFolderPath);
@@ -60,12 +61,20 @@ public class MoveFile {
      */
     private static void moveFile(File file, String targetFolderPath, String format) {
         String targetFileName = file.getName();
-        String targetFolderName = format; // 新建文件夹名称
+        // 新建文件夹名称
+        String targetFolderName = format;
         File targetFolder = new File(targetFolderPath, targetFolderName);
 
         try {
             if (!targetFolder.exists()) {
-                targetFolder.mkdir(); // 创建新的目标文件夹
+                // 创建新的目标文件夹（mkdirs可以成功不加s不行）因为是多级
+                boolean created=targetFolder.mkdirs();
+                //判断一下是否创建成功
+                if (created) {
+                    System.out.println("文件夹创建成功");
+                } else {
+                    System.out.println("文件夹创建失败");
+                }
             }
 
             Path sourcePath = file.toPath();
