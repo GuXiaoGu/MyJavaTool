@@ -25,7 +25,7 @@ public class MoveFile {
         System.out.println("Hello world!");
 
         // 文件夹路径
-        String sourceFolderPath = "F:\\完完整整分类好的\\04-照片日期分类\\0000";
+        String sourceFolderPath = "F:\\临时中转";
         // 目标文件夹路径
         String targetFolderPath = "F:\\完完整整分类好的\\04-照片日期分类";
 
@@ -112,6 +112,13 @@ public class MoveFile {
         return filePath;
     }
 
+    /**
+     * 筛选满足格式的文件类型
+     * @param folder 源文件夹地址
+     * @param fileTypes 文件类型
+     *
+     * @return
+     */
     private static List<File> searchFiles(File folder, String[] fileTypes) {
         List<File> fileList = new ArrayList<>();
 

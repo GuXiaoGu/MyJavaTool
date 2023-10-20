@@ -1,6 +1,8 @@
 package main.java.org.example;
 
 import java.io.*;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -16,7 +18,8 @@ public class DeleteFolder {
 
 
     public static void main(String[] args) {
-        String folderPath = "F:\\2022-7-22存放所有未分类";
+
+        String folderPath = "F:\\临时中转";
 
 
         deleteEmptyFolders(folderPath);
@@ -24,6 +27,9 @@ public class DeleteFolder {
         System.out.println("总共删除了 " + deletedFoldersCount + " 个文件夹");
     }
 
+    /**
+     * @param folderPath
+     */
     public static void deleteEmptyFolders(String folderPath) {
         File folder = new File(folderPath);
 
@@ -77,6 +83,11 @@ public class DeleteFolder {
         }
     }
 
+    /**
+     * 创建日志文件，但是目前存在bug就是会覆盖掉当天的日志文件，有空了再改
+     * @param logDirectoryPath
+     * @return
+     */
     private static File createLogFile(String logDirectoryPath) {
         // 检查日志目录是否存在，如果不存在则创建
         File logDirectory = new File(logDirectoryPath);
@@ -86,7 +97,8 @@ public class DeleteFolder {
 
         // 获取当前日期和时间作为日志文件名
         Date date = new Date();
-        String fileName = "delete_log_" + date.getTime() + ".txt";
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String fileName = "delete_log_" + format.format(date.getTime()) + ".txt";
 
         // 创建日志文件
         File logFile = new File(logDirectory, fileName);
