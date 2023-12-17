@@ -19,7 +19,7 @@ public class DeleteFolder {
 
     public static void main(String[] args) {
 
-        String folderPath = "F:\\临时中转";
+        String folderPath = "E:\\Recovery_20231021_161504";
 
 
         deleteEmptyFolders(folderPath);

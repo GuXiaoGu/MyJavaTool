@@ -24,8 +24,8 @@ public class MoveFile {
     public static void main(String[] args) {
         System.out.println("Hello world!");
 
-        // 文件夹路径
-        String sourceFolderPath = "F:\\临时中转";
+        // 源文件夹路径
+        String sourceFolderPath = "C:\\Users\\HZ\\Desktop\\新建文件夹";
         // 目标文件夹路径
         String targetFolderPath = "F:\\完完整整分类好的\\04-照片日期分类";
 
